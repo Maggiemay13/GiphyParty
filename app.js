@@ -1,11 +1,10 @@
 // console.log("Let's get this party started!");
 
 
-
 async function getGif(input){
     const result = await axios.get("http://api.giphy.com/v1/gifs/search", {
               params: {
-                q: ('#search-submit-button'), 
+                q: (input), 
                 api_key: "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym"
               }
             });
@@ -34,9 +33,9 @@ btn.addEventListener('click', function(e){
     input.value = "";
 });
 
+const removeBtn = document.querySelector('#remove-search-button');
+removeBtn.addEventListener('click', function(){
+  let newGif = document.querySelector('#rendered-gifs');
+  newGif.innerHTML="";
+});
 
-
-// why is remove button working?  it shouldnt
-// why cant I return a gif that is associatied with my input?
-//why did I have to type data twice in my newDiv function?
-// is there a way to have images gif to show up in a row?
